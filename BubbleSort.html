@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+<style>
+
+</style>
+</head>
+<body>
+
+<h1>Sample Bubble Sort</h1>
+
+<form>
+	Enter numbers below <br>
+	<input type="text" name="userNumber" id="userEnteredNumber">
+    <Br><br>
+    <input type="button" name="addNumber" value="Add" onClick="addNum()">
+    <Br>
+    <p> Entered Numbers : </p>
+	<p id="displayUserArray"></p>
+	<Br>
+    <input type="button" name="executeBubbleSort" value="Bubble Sort" onClick="bubbleSort()">
+</form>
+
+
+<p> Sorted Numbers : </p>
+<p id="displaySortedArray"></p>
+<script>
+var userArray =[];
+var sortedArray =[];
+
+function addNum(){
+	var num = document.getElementById("userEnteredNumber").value;
+	userArray.push(num);
+    document.getElementById("displayUserArray").innerHTML = userArray.join(' ');
+    console.log("adding " + num);
+    return false;
+}
+
+function bubbleSort(){
+	var swapp;
+    var n = userArray.length-1;
+    var x=userArray;
+    
+    for(var z=0; z<x.length; z++)
+    	console.log(x[z]);
+    
+    do {
+        swapp = false;
+        for (var i=0; i < n; i++)
+        {
+        	console.log(typeof x[i]);
+            console.log(typeof x[i+1]);
+        	console.log("comparing " + Number(x[i]) + " with " + Number(x[i+1]));
+            if (Number(x[i]) > Number(x[i+1]))
+            {
+            	console.log("swapping " + x[i] + " with " + x[i+1]);
+               var temp = x[i];
+               x[i] = x[i+1];
+               x[i+1] = temp;
+               swapp = true;
+            }
+        }
+        n--;
+    } while (swapp);
+ 
+ document.getElementById("displaySortedArray").innerHTML = x.join(' ');
+ return false;
+}
+
+</script>
+
+</body>
+</html>
